@@ -1,0 +1,32 @@
+{
+  "name": "trackr",
+  "version": "1.0.0",
+  "description": "Web application to track and manage projects, teams and deadlines.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davreds/Trackr.git"
+  },
+  "keywords": [
+    "Trackr",
+    "Proyect",
+    "Management",
+    "Tracking",
+    "Teams",
+    "Tasks"
+  ],
+  "author": "David Rojas & Tony Alcantara",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davreds/Trackr/issues"
+  },
+  "homepage": "https://github.com/davreds/Trackr#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "path": "^0.12.7"
+  }
+}
