@@ -1,6 +1,6 @@
 [
     {
-        "Title" : "Proyecto Final Mate1",
+        "Title" : "Proyecto Final Mate 1",
         "DueDate" : "25/05/2019",
         "Team" : ["David", "Daniel", "Dario"],
         "Description" : "Proyecto de investigacion sobre la historia del calculo diferencial",
@@ -36,7 +36,7 @@
         "Tasks" : [
             {
                 "Name" : "Investigacion sobre confiabilidad y disponibilidad",
-                "Description" : "1 cuartilla con ambas definiciones y eejemplos",
+                "Description" : "1 cuartilla con ambas definiciones y ejemplos",
                 "Responsibles" : ["David"],
                 "DueDate" : "13/03/2019",
                 "Complete" : true

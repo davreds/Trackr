@@ -1,13 +1,25 @@
 body {
-    color: white;
+    color: #632fe5;
+    font-family: 'Muli', sans-serif;
 }
 
+h1 {
+    font-size: 30px;
+
+}
 .project {
-    background-color: blue;
+    background-color: #fff7aa;
     padding: 5px;
     margin: 5px;
     display: inline-block;
-    width: 400px
+    vertical-align: top;
+    width: 600px;
+    border-radius: 15px;
+}
+
+.projectHead {
+    display: inline-block;
+    color: #7a076a;
 }
 
 .hidden {
