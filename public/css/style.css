@@ -1,0 +1,15 @@
+body {
+    color: white;
+}
+
+.project {
+    background-color: blue;
+    padding: 5px;
+    margin: 5px;
+    display: inline-block;
+    width: 400px
+}
+
+.hidden {
+    display: none;
+}

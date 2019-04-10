@@ -1,0 +1,53 @@
+[
+    {
+        "Title" : "Proyecto Final Mate1",
+        "DueDate" : "25/05/2019",
+        "Team" : ["David", "Daniel", "Dario"],
+        "Description" : "Proyecto de investigacion sobre la historia del calculo diferencial",
+        "Tasks" : [
+            {
+                "Name" : "Documentacion",
+                "Description" : "Documentacion del proyecto y bla, bla, bla",
+                "Responsibles" : ["David", "Daniel"],
+                "DueDate" : "17/05/2019",
+                "Complete" : false
+            },
+            {
+                "Name" : "Investigacion",
+                "Description" : "Investigacion de los temas y bla, bla, bla",
+                "Responsibles" : ["David", "Dario", "Daniel"],
+                "DueDate" : "20/05/2019",
+                "Complete" : false
+            },
+            {
+                "Name" : "Conclusion",
+                "Description" : "Conclusion del reporte",
+                "Responsibles" : ["Daniel"],
+                "DueDate" : "23/05/2019",
+                "Complete" : true
+            }
+        ]
+    },
+    {
+        "Title" : "Tareas Arqui",
+        "DueDate" : "Continuous",
+        "Team" : ["David"],
+        "Description" : "Tareas de la materia de Arqui.",
+        "Tasks" : [
+            {
+                "Name" : "Investigacion sobre confiabilidad y disponibilidad",
+                "Description" : "1 cuartilla con ambas definiciones y eejemplos",
+                "Responsibles" : ["David"],
+                "DueDate" : "13/03/2019",
+                "Complete" : true
+            },
+            {
+                "Name" : "Patrones Creacionales",
+                "Description" : "En 1 hoja a mano por ambos lados poner informacion sobre los patrones creacionales",
+                "Responsibles" : ["David"],
+                "DueDate" : "19/03/2019",
+                "Complete" : false
+            }
+        ]
+    }
+]
