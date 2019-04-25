@@ -1,16 +1,262 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
-        <meta charset="utf-8">
-        <title>Trackr</title>
-        <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <meta charset="utf-8" />
+      <title>Projects</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="./css/style.css">
+      <link rel="stylesheet" href="./css/projectPage.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.css">
+      <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </head>
-    <body>
-        <h1>Trackr</h1>
-        <div id="projectSpace">
+    <head>
+    </head>
+    <body class="grad">
+
+      <!-- header{
+        Trackr a la izquierda. A la derecha hay 2 botones(Proyectos, mi Nombre)
+    } -->
+
+    <nav class="navbar" role="navigation" aria-label="dropdown navigation" style="background-color: hsl(0, 0%, 92%)">
+      <div class="navbar-menu">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="./index.html">
+            <logoWord style="color: #00559b; font-size: 18pt;"> Trackr.</logoWord>
+          </a>
+
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
         </div>
+        <div class="navbar-end">
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">
+              Projects
+            </a>
+
+            <div class="navbar-dropdown is-right">
+              <div class="navbar-item">
+                <p class="notAction">Yours</p>
+              </div>
+              <a class="navbar-item">
+                Project 1
+              </a>
+              <a class="navbar-item">
+                Project 2
+              </a>
+              <a class="navbar-item">
+                Project 3
+              </a>
+              <hr class="navbar-divider">
+              <div class="navbar-item">
+                <p class="notAction">Shared with you</p>
+              </div>
+              <a class="navbar-item">
+                Shared 1
+              </a>
+            </div>
+          </div>
+          <a class="navbar-item" >
+            <p id="userLogedIn"> Tony David </p>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="hero" style="margin-bottom: -1px;">
+        <div id="projectDescription" style="margin-bottom: 30px; margin-top: 20px; margin-left:25px; margin-right:25px;">
+          <div class="columns">
+            <div class="column is-four-fifths">
+              <p id="actualProject" class="title is-2">Project1.</p>
+              <p class="subtitle is-4">
+                Maybe a project description.
+              </p>
+            </div>
+            <div class="column">
+              <div class="dropdown is-pulled-right" style="margin-right: 60px;">
+                <div class="dropdown-trigger">
+                  <button class="button" aria-haspopup="true" aria-controls="dropdown-menu6">
+                    <span>Contributors</span>
+                    <span class="icon is-small">
+                      <i class="fas fa-angle-down" aria-hidden="true"></i>
+                    </span>
+                  </button>
+                </div>
+                <div class="dropdown-menu" role="menu">
+                  <div class="dropdown-content">
+                    <a href="#" class="dropdown-item">
+                      contributor 1
+                    </a>
+                    <a class="dropdown-item">
+                      contributor 2
+                    </a>
+                    <a href="#" class="dropdown-item">
+                      contributor 3
+                    </a>
+                    <hr class="dropdown-divider">
+                    <a href="#" class="dropdown-item">
+                      <p class="userAction">Add contributor</p>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+
+        <section class="hero grad is-multiline">
+          <div style="margin-top: 15px; margin-left: 15px;">
+            <a class="button is-light is-outlined">Add section</a>
+          </div>
+              <div id="tablero" class="projectCardContainer" style="padding-right: 20px;">
+                <projectCard id="card1" class="is-multiline">
+                    <p class="title is-3" style="word-wrap: break-word;">Sub-Project Name aksjhd aljshdgk aksjdhg askjdhga</p>
+                    <p class="subtitle is-5" style="color: grey;"> description of the project</p>
+                    <p class="title is-4">Task Name 1</p>
+                    <p class="subtitle is-6" style="color: grey;"> description</p>
+                    <p class="subtitle is-6"> Person in charge</p>
+                    <p class="title is-4">Task Name 2</p>
+                    <p class="subtitle is-6" style="color: grey;"> description</p>
+                    <p class="subtitle is-6"> Person in charge</p>
+                    <p class="title is-4">Task Name 3</p>
+                    <p class="subtitle is-6" style="color: grey;"> description</p>
+                    <p class="subtitle is-6"> Person in charge</p>
+                    p class="title is-4">Task Name 2</p>
+                    <p class="subtitle is-6" style="color: grey;"> description</p>
+                    <p class="subtitle is-6"> Person in charge</p>
+                    <p class="title is-4">Task Name 3</p>
+                    <p class="subtitle is-6" style="color: grey;"> description</p>
+                    <p class="subtitle is-6"> Person in charge</p>
+                    p class="title is-4">Task Name 2</p>
+                    <p class="subtitle is-6" style="color: grey;"> description</p>
+                    <p class="subtitle is-6"> Person in charge</p>
+                    <p class="title is-4">Task Name 3</p>
+                    <p class="subtitle is-6" style="color: grey;"> description</p>
+                    <p class="subtitle is-6"> Person in charge</p>
+                </projectCard>
+
+                <projectCard id="card1">
+                    <p class="title is-3">Sub-Project Name</p>
+                    <p class="subtitle is-5" style="color: grey;"> description of the project</p>
+                    <p class="title is-4">Task Name 1</p>
+                    <p class="subtitle is-6" style="color: grey;"> description</p>
+                    <p class="subtitle is-6"> Person in charge</p>
+                    <p class="title is-4">Task Name 2</p>
+                    <p class="subtitle is-6" style="color: grey;"> description</p>
+                    <p class="subtitle is-6"> Person in charge</p>
+                    <p class="title is-4">Task Name 3</p>
+                    <p class="subtitle is-6" style="color: grey;"> description</p>
+                    <p class="subtitle is-6"> Person in charge</p>
+                </projectCard>
+
+                <projectCard id="card1">
+                    <p class="title is-3">Sub-Project Name</p>
+                    <p class="subtitle is-5" style="color: grey;"> description of the project</p>
+                    <p class="title is-4">Task Name 1</p>
+                    <p class="subtitle is-6" style="color: grey;"> description</p>
+                    <p class="subtitle is-6"> Person in charge</p>
+                    <p class="title is-4">Task Name 2</p>
+                    <p class="subtitle is-6" style="color: grey;"> description</p>
+                    <p class="subtitle is-6"> Person in charge</p>
+                    <p class="title is-4">Task Name 3</p>
+                    <p class="subtitle is-6" style="color: grey;"> description</p>
+                    <p class="subtitle is-6"> Person in charge</p>
+                </projectCard>
+
+                <projectCard id="card1">
+                    <p class="title is-3">Sub-Project Name </p>
+                    <p class="subtitle is-5" style="color: grey;"> description of the project</p>
+                    <p class="title is-4">Task Name 1</p>
+                    <p class="subtitle is-6" style="color: grey;"> description</p>
+                    <p class="subtitle is-6"> Person in charge</p>
+                    <p class="title is-4">Task Name 2</p>
+                    <p class="subtitle is-6" style="color: grey;"> description</p>
+                    <p class="subtitle is-6"> Person in charge</p>
+                    <p class="title is-4">Task Name 3</p>
+                    <p class="subtitle is-6" style="color: grey;"> description</p>
+                    <p class="subtitle is-6"> Person in charge</p>
+                </projectCard>
+              </div>
+        </section>
+  <!--
+
+
+  <section class="hero">
+  <nav class="navbar is-fixed-top" role="navigation" aria-label="dropdown navigation" style="background-color: hsl(0, 0%, 96%)">
+  <div class="navbar-menu">
+    <div class="navbar-brand">
+    <a class="navbar-item" href="./index.html">
+      <logoWord style="color: #00559b; font-size: 18pt;"> Trackr.</logoWord>
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+    <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            Projects
+          </a>
+
+          <div class="navbar-dropdown is-right">
+            <div class="navbar-item">
+              <p style="color: hsl(217, 71%, 53%);">Shared with you</p>
+            </div>
+            <a class="navbar-item">
+              Project 1
+            </a>
+            <a class="navbar-item">
+              Project 2
+            </a>
+            <a class="navbar-item">
+              Project 3
+            </a>
+            <hr class="navbar-divider">
+            <div class="navbar-item">
+              <p style="color: hsl(217, 71%, 53%);">Shared with you</p>
+            </div>
+            <a class="navbar-item">
+              Shared 1
+            </a>
+      </div>
+    </div>
+    <a class="navbar-item" style="margin-right: 20px;">
+      <p> Tony </p>
+    </a>
+  </div>
+    </div>
+  </nav>
+  </section>
+
+     seccion{
+    Nombre del proyecto a la izquierda y dropdown de contributors a la derecha
+
+    Tablero
+
+  }
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container">
+        <p id="actualProject" class="title" style="text-align: left;"> Proyecto 1</p>
+      </div>
+    </div>
+  </section>
+
+  <div id="projectSpace">
+    <div class="projectCard">
+    </div>
+  </div>
+
+-->
+
         <script type="text/javascript" src="js/projects.js"></script>
     </body>
 </html>

@@ -1,25 +1,27 @@
-body {
-    color: #632fe5;
-    font-family: 'Muli', sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Montserrat:800|Rubik:300');
+
+logoWord{
+  font-family: 'Montserrat', sans-serif;
+  color: black;
 }
 
-h1 {
-    font-size: 30px;
-
+.textLeter{
+  font-family: 'Rubik', sans-serif;
 }
-.project {
-    background-color: #fff7aa;
-    padding: 5px;
-    margin: 5px;
-    display: inline-block;
-    vertical-align: top;
-    width: 600px;
-    border-radius: 15px;
-}
+/*
+background-image: url(./imagenes/innovation-cover.png);
+  min-height: 500px;
+  background-attachment: fixed;
+  background-position: center;
+  margin-top: -20px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: -moz-linear-gradient(90deg, #E4E5E6 0%, #00416A 100%);
+*/
 
-.projectHead {
-    display: inline-block;
-    color: #7a076a;
+.grad{
+  background-color: #22B4E2;
+  background-image: -moz-linear-gradient(to right, hsl(171, 100%, 41%) 0%, #00416A 100%);
 }
 
 .hidden {

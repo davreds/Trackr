@@ -1,0 +1,54 @@
+*{
+  box-sizing: border-box;
+}
+
+
+.projectCardContainer{
+  display:flex;
+  overflow: hidden;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  padding-right: 100px;
+  width: auto;
+}
+
+.grad{
+  background-color: #22B4E2;
+  background-image: -moz-linear-gradient(to right, hsl(171, 100%, 41%) 0%, #00416A 100%);
+}
+
+.projectDescriptionLayer{
+  margin-top: 500px;
+  margin-bottom: 500px;
+}
+
+projectCard{
+  background-color: white;
+  border-radius: 25px;
+
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+
+  min-width: 350px;
+  min-height: 500px;
+  max-width: 351px;
+  max-height: 501px;
+
+  overflow-y: scroll;
+}
+
+.notAction{
+  color: hsl(0, 0%, 71%);
+}
+
+.userAction{
+  color: hsl(217, 71%, 53%);
+}
