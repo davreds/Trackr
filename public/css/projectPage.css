@@ -4,13 +4,12 @@
 
 
 .projectCardContainer{
-  display:flex;
-  overflow: hidden;
   overflow-x: scroll;
+  margin-bottom: 21px;
   overflow-y: hidden;
-  white-space: nowrap;
-  padding-right: 100px;
-  width: auto;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .grad{
@@ -23,26 +22,9 @@
   margin-bottom: 500px;
 }
 
-projectCard{
-  background-color: white;
-  border-radius: 25px;
-
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 20px;
-  padding-right: 20px;
-
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-left: 20px;
-  margin-right: 20px;
-
-  min-width: 350px;
-  min-height: 500px;
-  max-width: 351px;
-  max-height: 501px;
-
+.projectCard{
   overflow-y: scroll;
+  height: 300px;
 }
 
 .notAction{
@@ -51,4 +33,14 @@ projectCard{
 
 .userAction{
   color: hsl(217, 71%, 53%);
+}
+
+.projectBoardInfo{
+  border-radius: 15px;
+  background-color: hsl(0, 0%, 1%, 30%);
+}
+
+.taskCardInfo{
+    border-radius: 15px;
+    background-color: hsl(0, 0%, 1%, 30%);
 }

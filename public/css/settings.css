@@ -1,0 +1,12 @@
+.notAction{
+  color: hsl(0, 0%, 71%);
+}
+
+.userAction{
+  color: hsl(217, 71%, 53%);
+}
+
+.right{
+  align-items: right;
+  text-align: right;
+}

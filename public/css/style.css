@@ -5,6 +5,11 @@ logoWord{
   color: black;
 }
 
+.logoNav{
+  color: #00559b;
+  font-size: 18pt;
+}
+
 .textLeter{
   font-family: 'Rubik', sans-serif;
 }
