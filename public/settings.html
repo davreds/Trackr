@@ -83,8 +83,18 @@
             </div>
             <div class="columns">
               <div class="column is-6 is-offset-2 ">
-                <input class="input" type="text" placeholder="i.e. John Doe">
-                <hr>
+                <input id="username" class="input" type="text" placeholder="i.e. John Doe">
+              </div>
+            </div>
+            <div name="confirmation">
+              <div class="columns">
+                <div class="column is-8 is-offset-2">
+                  <div class="right">
+                    <br>
+                    <a onclick="changeNameCancel()" class="button">Cancel</a>
+                    <a onclick="changeName()" class="button is-success">Save changes</a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -101,12 +111,21 @@
             </div>
             <div class="columns">
               <div class="column is-6 is-offset-2 ">
-                <input class="input" type="text" placeholder="i.e. JohnDoe@example.com">
-                <hr>
+                <input id="useremail" class="input" type="text" placeholder="i.e. JohnDoe@example.com">
               </div>
             </div>
           </div>
-
+          <div name="confirmation">
+            <div class="columns">
+              <div class="column is-8 is-offset-2">
+                <div class="right">
+                  <br>
+                  <a onclick="changeEmailCancel()" class="button">Cancel</a>
+                  <a onclick="changeEmail()" class="button is-success">Save changes</a>
+                </div>
+              </div>
+            </div>
+          </div>
           <div name="userPassword">
             <div class="columns">
               <div class="column is-8 is-offset-2 ">
@@ -125,7 +144,7 @@
                       <h2 class="title is-6 has-text-grey">
                         Write your new password.
                       </h2>
-                      <input class="input" type="password" placeholder="i.e. JohnDoe@example.com">
+                      <input id="newPassword" class="input" type="password" placeholder="i.e. JohnDoe@example.com">
                     </div>
                   </div>
                   <div class="columns">
@@ -133,7 +152,7 @@
                       <h2 class="title is-6 has-text-grey">
                         Confirm your new password.
                       </h2>
-                      <input class="input" type="password" placeholder="i.e. JohnDoe@example.com">
+                      <input id="newPassConfirm" class="input" type="password" placeholder="i.e. JohnDoe@example.com">
                     </div>
                   </div>
                   <div class="columns">
@@ -141,22 +160,21 @@
                       <h2 class="title is-6 has-text-grey">
                         Please confirm you are you. Enter your current password.
                       </h2>
-                      <input class="input" type="password" placeholder="i.e. JohnDoe@example.com">
+                      <input id="actualPass" class="input" type="password" placeholder="i.e. JohnDoe@example.com">
                     </div>
                   </div>
-
-
                 </div>
-            </div>
-          </div>
-          <div name="confirmation">
-            <div class="columns">
-              <div class="column is-8 is-offset-2">
-                <div class="right">
-                  <a class="button" href="./dashboard.html">Cancel</a>
-                  <a class="button is-success">Save changes</a>
+                <div name="confirmation">
+                  <div class="columns">
+                    <div class="column is-8 is-offset-2">
+                      <div class="right">
+                        <br />
+                        <a class="button">Cancel</a>
+                        <a onclick="changePassword()" class="button is-success">Save changes</a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
             </div>
           </div>
         </div>

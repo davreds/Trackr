@@ -146,3 +146,26 @@
     width: 300px;
     height: auto;
 }
+
+.is-vertical-center {
+  display: flex;
+  text-align: left;
+  align-content: center;
+  margin-top: 50px;
+}
+
+.is-vertical-center-last {
+  display: flex;
+  text-align: left;
+  align-content: center;
+  margin-top: 10px;
+}
+
+.centered{
+  text-align: center;
+}
+
+.picture{
+  height: 30%;
+  width: 30%;
+}

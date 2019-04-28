@@ -33,7 +33,7 @@
   "Treckr." del lado izquiero y el cuadro de sign up a la derecha.
 } -->
 
-<div class="grad hero is-large" id="signUp">
+<div class="grad hero is-large">
   <div class="columns mainHeader">
     <div class="column">
       <p class="logotypeMainpage"> Trackr.</p>
@@ -44,14 +44,14 @@
           <p class="textCardSubtitle" align="left" margin-top="-5px">Join the best task manager worldwide</p>
           <hr class="signUpLine"/>
           <p class="textform" align="left">Name:</p>
-          <input class="input" type="text" placeholder="John" id="userName">
+          <input id="userName" class="input" type="text" placeholder="John">
           <p class="textform" align="left">Last Name:</p>
-          <input class="input" type="text" placeholder="Doe" id="userLastname">
+          <input id="userLastname" class="input" type="text" placeholder="Doe" >
           <p class="textform" align="left">email:</p>
-          <input class="input" type="email" placeholder="John.Doe@example.com" id="userEmail">
+          <input id="userEmail" class="input" type="email" placeholder="John.Doe@example.com">
           <div class="columns">
             <div class="column">
-              <a class="button is-rounded" style="background-color:#e2787d; color:white; margin-top: 15px; border-color: #e2787d;">Sign Up</a>
+              <a id="button-signUp" onclick="signUp()" class="button is-rounded" style="background-color:#e2787d; color:white; margin-top: 15px; border-color: #e2787d;">Sign Up</a>
             </div>
             <div class="column">
               <p class="singup" align="center" style="margin-top: 15px;">Already have an acount?</p>
@@ -73,9 +73,12 @@
           <h1 class="title is-3">
             Easy way to make things done.
           </h1>
+          <br>
           <h2 class="subtitle is-4" >
             <logoWord>Trackr</logoWord> gives the oportunity to work clean and simple.
-            <p>Organize your own or team projects into easy tasks.</p>
+          </h2>
+          <h2 class="subtitle is-4" >
+            <p>Organize your own projects or team projects into easy tasks. In order to ensure work done.</p>
           </h2>
         </div>
       </div>
@@ -150,6 +153,33 @@
       </div>
     </section>
 
+
+    <!-- Why to use Track? {
+
+  }-->
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container" align="center">
+        <h1 class="title is-3">
+          But... what is <logoWord>Trackr</logoWord>?
+        </h1>
+        <div class="columns centered">
+          <div class="column is-8 is-offset-2">
+            <h2 class="subtitle is-4 has-text-grey">
+              <p>Is a project manager website which helps you to organize your tasks. Even with more people.</p>
+              <p>The app is composed in dashboards, project and tasks. All of this in order to give you the power to be productive.</p>
+            </h2>
+          </div>
+        </div>
+        <br>
+        <figure class="image picture">
+          <img src="./img/manager.png">
+        </figure>
+      </div>
+    </div>
+  </section>
+
   <!--  Developers{
     Foto de David y mia de que somos los devs
   }-->
@@ -196,7 +226,7 @@
           This is a beta
         </h1>
         <br>
-        <h2 class="subtitle is-6 has-text-grey-lighter" >We still in beta, and new functions are being developed.</h2>
+        <h2 class="subtitle is-6 has-text-grey-lighter" >We still in beta. New functions are being developed.</h2>
         <h2 class="subtitle is-6 has-text-grey-lighter" >Thanks for stick around with us in this journey. </h2>
       </div>
     </div>
@@ -232,5 +262,7 @@
     <h1 class="subtitle is-7 is-margineless" align="right"> Made with love <3</h1>
   </div>
 </section>
+
+  <script type="text/javascript" src="js/index.js"></script>
   </body>
 </html>

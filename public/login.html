@@ -19,9 +19,9 @@
               <p class="textCardSubtitlelogin" margin-top="-5px">Acess to your account</p>
               <hr class="loginLine"/>
               <p class="textform" align="left">Email:</p>
-              <input class="input" type="text" placeholder="John.Doe@example.com" id="userEmail">
+              <input id="userEmail" class="input" type="text" placeholder="John.Doe@example.com">
               <p class="textform" align="left">Password:</p>
-              <input class="input" type="text" placeholder="********" id="userName">
+              <input id="userPass" class="input" type="password">
               <div class="columns" style="margin-top: 0px;">
                 <div class="column">
                   <label class="checkbox">
@@ -33,7 +33,7 @@
                   <p class="login">Forgot password?</p>
                 </div>
               </div>
-              <a class="button is-rounded" style="background-color:#e2787d; color:white; margin-bottom: 5px; border-color: #e2787d;">Sign Up</a>
+              <a onclick="logIn()" class="button is-rounded" style="background-color:#e2787d; color:white; margin-bottom: 5px; border-color: #e2787d;">Log in</a>
               <p class="login" style="margin-top: 15px;">
                 Not registered?
                 <a href="./index.html" style="color:#e2787d; font-weight: bold;">Create account</a>
@@ -43,5 +43,6 @@
         </div>
       </div>
     </div>
+      <script type="text/javascript" src="js/login.js"></script>
   </body>
 </html>
