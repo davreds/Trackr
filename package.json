@@ -4,8 +4,8 @@
   "description": "Web application to track and manage projects, teams and deadlines.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node /src/server.js",
+    "dev": "nodemon /src/server.js"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,7 @@
   "homepage": "https://github.com/davreds/Trackr#readme",
   "dependencies": {
     "express": "^4.16.4",
+    "mongoose": "^5.5.3",
     "path": "^0.12.7"
   }
 }
