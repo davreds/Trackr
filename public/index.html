@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/homepage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <title>Trackr</title>
+  </head>
+  <body>
+
+    <!-- Stuff {
+      usar clase is-flex de bulma
+      https://bulma.io/documentation/elements/button/ This is for buttons (USE THEM)
+      https://bulma.io/documentation/layout/hero/ Hero may help
+      https://bulma.io/documentation/layout/tiles/ Tiles are good tho
+      https://bulma.io/documentation/form/ This is for Forms
+      https://bulma.io/documentation/elements/progress/ Esto ayuda para ver el progreso
+      https://bulma.io/documentation/elements/title/ Esto me puede ayudar para los titulos ya definidos
+      https://bulma.io/documentation/components/card/ Estas madres estan bien vergas pero no se en que usarlas
+      https://bulma.io/documentation/components/dropdown/ Esto puede estar cool para etiquetar gente
+      https://bulma.io/documentation/components/menu/ Puede servir como las tres rallitas a la izquierda arriba
+      https://bulma.io/documentation/components/message/ Pueden servir para la descripcion de alguna tarea
+      https://bulma.io/documentation/components/modal/ Esto es como un pop up
+      https://bulma.io/documentation/components/tabs/ Esto puede servir como navigation bar tho
+    } -->
+
+
+<!-- Log in{
+  Gradiente de mas tenue a mas fuerte a la derecha
+  "Treckr." del lado izquiero y el cuadro de sign up a la derecha.
+} -->
+
+<div class="grad hero is-large">
+  <div class="columns mainHeader">
+    <div class="column">
+      <p class="logotypeMainpage"> Trackr.</p>
+    </div>
+    <div class="column">
+      <div class="signUpCard" >
+          <p class="textCardTitle">Sign Up Today</p>
+          <p class="textCardSubtitle" align="left" margin-top="-5px">Join the best task manager worldwide</p>
+          <hr class="signUpLine"/>
+          <p class="textform" align="left">Name:</p>
+          <input id="userName" class="input" type="text" placeholder="John">
+          <p class="textform" align="left">Last Name:</p>
+          <input id="userLastname" class="input" type="text" placeholder="Doe" >
+          <p class="textform" align="left">email:</p>
+          <input id="userEmail" class="input" type="email" placeholder="John.Doe@example.com">
+          <div class="columns">
+            <div class="column">
+              <a id="button-signUp" onclick="signUp()" class="button is-rounded" style="background-color:#e2787d; color:white; margin-top: 15px; border-color: #e2787d;">Sign Up</a>
+            </div>
+            <div class="column">
+              <p class="singup" align="center" style="margin-top: 15px;">Already have an acount?</p>
+              <p class="singup"><a href="./login.html" style="color:#e2787d; font-weight: bold;">Log in</a></p>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Informacion {
+    Gettin started{
+      Parafito corto y que se vea chingon/mamon de que trata el proyecto
+    }-->
+    <section class="hero is-medium">
+      <div class="hero-body">
+        <div class="container" align="center">
+          <h1 class="title is-3">
+            Easy way to make things done.
+          </h1>
+          <br>
+          <h2 class="subtitle is-4" >
+            <logoWord>Trackr</logoWord> gives the oportunity to work clean and simple.
+          </h2>
+          <h2 class="subtitle is-4" >
+            <p>Organize your own projects or team projects into easy tasks. In order to ensure work done.</p>
+          </h2>
+        </div>
+      </div>
+    </section>
+  <!--  Porque nuestro proyecto es mas vergas{
+      Describimos un poquito mas a detalle de las cosas que tiene el proyecto
+    }-->
+
+    <section class="hero" id="features">
+      <div class="hero-body">
+        <div class="container" align="center">
+          <h1 class="title has-text-primary is-3">
+            <logoWord class="has-text-primary">Tracker</logoWord> facilitates managing tasks
+          </h1>
+        </div>
+      </div>
+
+      <div class="hero-body">
+        <div class="container">
+          <div class="columns" align="center">
+
+            <div class="column">
+              <figure class="image is-96x96">
+                <img src="./img/colaborative.png">
+              </figure>
+              <h1 class="title is-4" style="color:#FFCC00; margin-top: 10px;">Colavorative</h1>
+              <h2 class="subtitle is-5"> Share boards with colleagues.</h2>
+            </div>
+
+            <div class="column">
+              <figure class="image is-96x96">
+                <img src="./img/progresion.png">
+              </figure>
+              <h1 class="title is-4" style="color:#33CC00; margin-top: 10px;">Progression</h1>
+              <h2 class="subtitle is-5">Helps to move foward in your tasks.</h2>
+            </div>
+
+            <div class="column">
+              <figure class="image is-96x96">
+                <img src="./img/organized.png">
+              </figure>
+              <h1 class="title is-4" style="color:#0099FF; margin-top: 10px;">Organized</h1>
+              <h2 class="subtitle is-5">Organise your tasks in projects.</h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-body">
+          <div class="container">
+            <div class="columns" align="center">
+              <div class="column">
+                <figure class="image is-96x96" style="padding-top:15px;">
+                  <img src="./img/intuitive.png">
+                </figure>
+                <h1 class="title is-4" style="color:#FF99FF; margin-top: 10px;">Intuitive</h1>
+                <h2 class="subtitle is-5">Environment easy to adapt.</h2>
+              </div>
+
+              <div class="column">
+                <figure class="image is-96x96">
+                  <img src="./img/Simple.png">
+                </figure>
+                <h1 class="title is-4" style="color:#FF9900; margin-top: 10px;">Simple</h1>
+                <h2 class="subtitle is-5">Simple but usefull interface</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      </div>
+    </section>
+
+
+    <!-- Why to use Track? {
+
+  }-->
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container" align="center">
+        <h1 class="title is-3">
+          But... what is <logoWord>Trackr</logoWord>?
+        </h1>
+        <div class="columns centered">
+          <div class="column is-8 is-offset-2">
+            <h2 class="subtitle is-4 has-text-grey">
+              <p>Is a project manager website which helps you to organize your tasks. Even with more people.</p>
+              <p>The app is composed in dashboards, project and tasks. All of this in order to give you the power to be productive.</p>
+            </h2>
+          </div>
+        </div>
+        <br>
+        <figure class="image picture">
+          <img src="./img/manager.png">
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!--  Developers{
+    Foto de David y mia de que somos los devs
+  }-->
+
+  <section class="hero is-light" id="aboutUs">
+    <div class="hero-body">
+      <div class="container" align="center">
+        <h1 class="title">
+          Developers
+        </h1>
+        <br>
+        <div class="columns">
+          <div class="column">
+            <figure class="image is-128x128">
+              <img class="is-rounded" src="./img/davidRojas.jpeg">
+            </figure>
+            <br />
+            <h2 class="subtitle">
+              <p class="subtitle is-4">David Rojas</p>
+              <p class="subtitle is-5" style="margin-top: -20px">Founder</p>
+              <p class="subtitle is-6" style="margin-top: -20px">Computer Science Engineer</p>
+            </h2>
+          </div>
+          <div class="column">
+            <figure class="image is-128x128">
+              <img class="is-rounded" src="./img/tonyDavid.jpeg">
+            </figure>
+            <br>
+            <h2 class="subtitle">
+              <p class="subtitle is-4">Antonio Alcántara</p>
+              <p class="subtitle is-5" style="margin-top: -20px">Founder</p>
+              <p class="subtitle is-6" style="margin-top: -20px">Innovation and Development Engineer</p>
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container" align="center">
+        <h1 class="title is-5 has-text-grey">
+          This is a beta
+        </h1>
+        <br>
+        <h2 class="subtitle is-6 has-text-grey-lighter" >We still in beta. New functions are being developed.</h2>
+        <h2 class="subtitle is-6 has-text-grey-lighter" >Thanks for stick around with us in this journey. </h2>
+      </div>
+    </div>
+  </section>
+
+
+  <!--  Recuadro gris{
+    Tendra el logo en gri hasta abajo y la fecha en que lo hicimos, nada fuera de lo comun
+    <a href="#opening">Take me to the opening paragraph.</a>
+  }-->
+  <section class="hero is-light">
+  <div class="hero-body">
+    <div class="container"><div class="container" style="margin-top: 30px; margin-bottom: 30px;">
+      <div class="columns">
+        <div class="column">
+          <logoWord class="logoFooter">Trackr.</logoWord>
+        </div>
+        <div class="column">
+          <h3 class="titleFooter has-text-grey-darker">Product</h3>
+          <p class="titleFooter has-text-grey"><a href="#features">Features</a></p>
+        </div>
+        <div class="column">
+          <h3 class="titleFooter has-text-grey-darker">Platform</h3>
+          <p class="titleFooter has-text-grey"><a href="./login.html">Log in</a></p>
+          <p class="titleFooter has-text-grey"><a href="#signUp">Sign Up</a></p>
+        </div>
+        <div class="column">
+          <h3 class="titleFooter has-text-grey-darker">Us</h3>
+          <p class="titleFooter has-text-grey"><a href="#aboutUs">About Us</a></p>
+        </div>
+      </div>
+    </div>
+    <h1 class="subtitle is-7 is-margineless" align="right"> Made with love <3</h1>
+  </div>
+</section>
+
+  <script type="text/javascript" src="js/index.js"></script>
+  </body>
+</html>

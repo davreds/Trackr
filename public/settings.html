@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Settings</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/settings.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <nav class="navbar" role="navigation" aria-label="dropdown navigation">
+      <div class="navbar-menu">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="#">
+            <logoWord class="logoNav"> Trackr.</logoWord>
+          </a>
+
+        </div>
+        <div class="navbar-end">
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">
+              Dashboards
+            </a>
+            <div class="navbar-dropdown is-right">
+              <div class="navbar-item">
+                <p class="notAction">Yours</p>
+              </div>
+              <div id="yourDashboards">
+                <a class="navbar-item">
+                  Project 1
+                </a>
+              </div>
+              <hr class="navbar-divider">
+              <div class="navbar-item">
+                <p class="notAction">Shared with you</p>
+              </div>
+              <div id="sharedDashboards">
+                <a class="navbar-item">
+                  Shared 1
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a id="user" class="navbar-item">
+              <p>Tony David</p>
+            </a>
+            <div class="navbar-dropdown is-right">
+              <a id="logOut" class="navbar-item">
+                <p class="has-text-danger">Log out.</p>
+              </a>
+            </div>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="hero is-light">
+      <div class="hero-body">
+        <div class="container">
+          <a class="button is-link" href="./dashboard.html">Back to home</a>
+          <div class="columns">
+            <div class="column is-8 is-offset-2 ">
+              <h1 class="title is-3">
+                Profile configuration
+              </h1>
+            </div>
+          </div>
+          <div name="userName">
+            <div class="columns">
+              <div class="column is-8 is-offset-2 ">
+                <h2 class="title is-4">
+                  User name
+                </h2>
+                <h2 class="title is-6 has-text-grey">
+                  This is the name everyone will see after you join a dashboard.
+                </h2>
+              </div>
+            </div>
+            <div class="columns">
+              <div class="column is-6 is-offset-2 ">
+                <input id="username" class="input" type="text" placeholder="i.e. John Doe">
+              </div>
+            </div>
+            <div name="confirmation">
+              <div class="columns">
+                <div class="column is-8 is-offset-2">
+                  <div class="right">
+                    <br>
+                    <a onclick="changeNameCancel()" class="button">Cancel</a>
+                    <a onclick="changeName()" class="button is-success">Save changes</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div name="userEmail">
+            <div class="columns">
+              <div class="column is-8 is-offset-2 ">
+                <h2 class="title is-4">
+                  Your email
+                </h2>
+                <h2 class="title is-6 has-text-grey">
+                  This is the email you will use to log in, also, this email will be used by other users who wants to invite you to colaborate in a dashboard.
+                </h2>
+              </div>
+            </div>
+            <div class="columns">
+              <div class="column is-6 is-offset-2 ">
+                <input id="useremail" class="input" type="text" placeholder="i.e. JohnDoe@example.com">
+              </div>
+            </div>
+          </div>
+          <div name="confirmation">
+            <div class="columns">
+              <div class="column is-8 is-offset-2">
+                <div class="right">
+                  <br>
+                  <a onclick="changeEmailCancel()" class="button">Cancel</a>
+                  <a onclick="changeEmail()" class="button is-success">Save changes</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div name="userPassword">
+            <div class="columns">
+              <div class="column is-8 is-offset-2 ">
+                <h2 class="title is-4">
+                  Change Password
+                </h2>
+                <h2 class="title is-6 has-text-grey">
+                  This is the password you will use to log in.
+                </h2>
+                <a id="change" class="button is-danger">Change Password</a>
+              </div>
+            </div>
+            <div id="password" class="hidden">
+                  <div class="columns">
+                    <div class="column is-6 is-offset-2 ">
+                      <h2 class="title is-6 has-text-grey">
+                        Write your new password.
+                      </h2>
+                      <input id="newPassword" class="input" type="password" placeholder="i.e. JohnDoe@example.com">
+                    </div>
+                  </div>
+                  <div class="columns">
+                    <div class="column is-6 is-offset-2 ">
+                      <h2 class="title is-6 has-text-grey">
+                        Confirm your new password.
+                      </h2>
+                      <input id="newPassConfirm" class="input" type="password" placeholder="i.e. JohnDoe@example.com">
+                    </div>
+                  </div>
+                  <div class="columns">
+                    <div class="column is-6 is-offset-2 ">
+                      <h2 class="title is-6 has-text-grey">
+                        Please confirm you are you. Enter your current password.
+                      </h2>
+                      <input id="actualPass" class="input" type="password" placeholder="i.e. JohnDoe@example.com">
+                    </div>
+                  </div>
+                </div>
+                <div name="confirmation">
+                  <div class="columns">
+                    <div class="column is-8 is-offset-2">
+                      <div class="right">
+                        <br />
+                        <a class="button">Cancel</a>
+                        <a onclick="changePassword()" class="button is-success">Save changes</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script type="text/javascript" src="js/settings.js"></script>
+  </body>
+</html>

@@ -1,0 +1,171 @@
+.mainHeader{
+  text-align: center;
+  padding-top: 200px;
+}
+
+.mainHeaderLogIn{
+  text-align: center;
+  margin-top: 70px;
+}
+
+.logotypeMainpage{
+  font-family: 'Montserrat', sans-serif;
+  color: #eef0eb;
+  font-size: 50pt;
+}
+
+.logotypeLogInPage{
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 80px;
+  margin-bottom: 80px;
+  color: #eef0eb;
+  font-size: 50pt;
+  text-align: center;
+}
+
+.signUpCard{
+  background-color: white;
+  border-radius: 25px;
+  padding: 20px;
+  margin-top: -60px;
+  margin-bottom: 120px;
+  margin-right: 150px;
+  margin-left: 150px;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.textCardTitle{
+  font-weight: bold;
+  font-size: 20pt;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  border-bottom:  0px;
+  color: #3a8a8c;
+  text-align: left;
+}
+
+.textCardSubtitle{
+  font-weight: bold;
+  color: grey;
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+.textform{
+  font-weight: bold;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  text-align: left
+}
+
+.singup{
+  color: grey;
+  margin-top: 0px;
+  text-align: left;
+  font-size: 14px;
+}
+
+
+.signUpLine{
+  border-top: 2px solid #e2787d;
+  width: 20%;
+  align: left;
+  margin-top: 1px;
+  margin-bottom: 2px;
+}
+
+.logoFooter{
+  font-size: 18pt;
+}
+
+.titleFooter{
+  text-align: left;
+  margin-left: 100px;
+}
+
+.subtitleFooter{
+  text-align: right;
+  margin-right: 30px;
+}
+
+.loginCard{
+  background-color: white;
+  border-radius: 25px;
+  padding: 20px;
+  margin-top: -60px;
+  margin-right: 150px;
+  margin-left: 150px;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.login{
+  color: hsl(0, 0%, 71%);
+  margin-top: 0px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.textCardTitleLogin{
+  font-weight: bold;
+  font-size: 20pt;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  border-bottom:  0px;
+  color: #3a8a8c;
+  text-align: center;
+}
+
+.textCardSubtitlelogin{
+  font-weight: bold;
+  color: grey;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.loginLine{
+  border-top: 2px solid #e2787d;
+  width: -40%;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-top: 20px;
+  margin-bottom: 2px;
+}
+
+.adventaje{
+  align-items: center;
+}
+
+.advOrga{
+  color:#0099FF;
+  margin-top: 10px;
+}
+
+.resize {
+    width: 300px;
+    height: auto;
+}
+
+.is-vertical-center {
+  display: flex;
+  text-align: left;
+  align-content: center;
+  margin-top: 50px;
+}
+
+.is-vertical-center-last {
+  display: flex;
+  text-align: left;
+  align-content: center;
+  margin-top: 10px;
+}
+
+.centered{
+  text-align: center;
+}
+
+.picture{
+  height: 30%;
+  width: 30%;
+}

@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/davreds/Trackr#readme",
   "dependencies": {
+    "bulma": "^0.7.4",
     "express": "^4.16.4",
     "mongoose": "^5.5.3",
     "path": "^0.12.7"
