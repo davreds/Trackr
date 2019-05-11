@@ -108,11 +108,11 @@ function newProject(){
     modal.classList.toggle('is-active');
   }
 
-
 //Quit dashboard
-function quitDashboard(){
-  var modal = document.getElementById("dashboardConfigModal");
-  event.stopPropagation();
-  //Funcion de salir del dashboard.
-  modal.classList.toggle('is-active');
-}
+  function quitDashboard(){
+    var modal = document.getElementById("dashboardConfigModal");
+    event.stopPropagation();
+    //Funcion de salir del dashboard.
+    modal.classList.toggle('is-active');
+  }
+  
