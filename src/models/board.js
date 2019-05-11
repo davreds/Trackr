@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const validator = require('validator')
 
-var taskSchema = new Schema({
+var taskSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
@@ -15,14 +15,14 @@ var taskSchema = new Schema({
     },
     complete: {
         type: Boolean,
-        required: true;
+        required: true
     }
-})
+});
 
-var projectSchema: {
+var projectSchema = new mongoose.Schema ({
     title: {
         type: String,
-        required: true,
+        required: true
     },
     description: {
         type: String
@@ -32,18 +32,18 @@ var projectSchema: {
         ref: 'User'
     },
     tasks: {
-        type: [taskSchema],
+        type: [taskSchema]
     }
-}
+});
 
-var boardSchema = new Schema({
+var boardSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
     },
     description: {
         type: String
-    }
+    },
     owner: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
@@ -56,8 +56,8 @@ var boardSchema = new Schema({
     projects: {
         type: [projectSchema]
     }
-})
+});
 
 const Board = mongoose.model('Board', boardSchema)
 
-module.exports = Board
+module.exports = Board;

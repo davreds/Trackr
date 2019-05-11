@@ -11,7 +11,7 @@ const userSchema = new mongoose.Schema({
         required: true,
         validate(value){
             if(!validator.isEmail(value)){
-                throw new Error('Email invalido')
+                throw new Error('Email invalido');
             }
         }
     },
@@ -23,14 +23,37 @@ const userSchema = new mongoose.Schema({
     },
     boards: {
         type: [mongoose.Schema.Types.ObjectId],
-        ref: 'User'
+        ref: 'Board'
     }
-})
+},{
+  toObject: {
+    virtuals: true
+  },
+  toJSON: {
+    virtuals: true
+  }
+});
+
+userSchema.virtual('todos', {
+  ref: 'Todo',
+  localField: '_id',
+  foreignField: 'createdBy'
+});
+
+userSchema.methods.toJSON = function() {
+  const user = this;
+  const userObject = user.toObject();
+
+  delete userObject.password;
+  delete userObject.tokens;
+
+  return userObject;
+};
 
 userSchema.pre('save', function(next) {
     const user = this
-    console.log('Saving user')
-    next()
-})
+    console.log('Saving user');
+    next();
+});
 
 const User = mongoose.model('')
