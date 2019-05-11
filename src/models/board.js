@@ -1,11 +1,49 @@
 const mongoose = require('mongoose')
 const validator = require('validator')
 
+var taskSchema = new Schema({
+    name: {
+        type: String,
+        required: true
+    },
+    description: {
+        type: String
+    },
+    responsibles: {
+        type: [mongoose.Schema.Types.ObjectId],
+        ref: 'User'
+    },
+    complete: {
+        type: Boolean,
+        required: true;
+    }
+})
+
+var projectSchema: {
+    title: {
+        type: String,
+        required: true,
+    },
+    description: {
+        type: String
+    },
+    team: {
+        type: [mongoose.Schema.Types.ObjectId],
+        ref: 'User'
+    },
+    tasks: {
+        type: [taskSchema],
+    }
+}
+
 var boardSchema = new Schema({
     name: {
         type: String,
         required: true
     },
+    description: {
+        type: String
+    }
     owner: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
@@ -15,36 +53,11 @@ var boardSchema = new Schema({
         type: [mongoose.Schema.Types.ObjectId],
         ref: 'User'
     },
-    
+    projects: {
+        type: [projectSchema]
+    }
 })
-    // name: {
-    //     type: String,
-    //     required: true
-    // },
-    // age: {
-    //     type: Number,
-    //     require: true,
-    //     validate(value){
-    //         if(value<13){
-    //             throw new Error('Debes ser mayor de 13 años')
-    //         }
-    //     }
-    // },
-    // email: {
-    //     type: String,
-    //     required: true,
-    //     validate(value){
-    //         if(!validator.isEmail(value)){
-    //             throw new Error('Email invalido')
-    //         }
-    //     }
-    // },
-    // password: {
-    //     type: String,
-    //     required: true,
-    //     minlength: 8,
-    //     trim: true
-    // }
-})
+
+const Board = mongoose.model('Board', boardSchema)
 
 module.exports = Board
