@@ -4,8 +4,7 @@
 
 
 .projectCardContainer{
-  overflow-x: scroll;
-  margin-bottom: 21px;
+  overflow-x: auto;
   overflow-y: hidden;
   align-items: center;
   padding-left: 20px;
