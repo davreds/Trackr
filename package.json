@@ -2,10 +2,10 @@
   "name": "trackr",
   "version": "1.0.0",
   "description": "Web application to track and manage projects, teams and deadlines.",
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
-    "start": "node /src/server.js",
-    "dev": "nodemon /src/server.js"
+    "start": "node /src/app.js",
+    "dev": "nodemon /src/app.js"
   },
   "repository": {
     "type": "git",
