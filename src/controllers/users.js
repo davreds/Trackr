@@ -24,7 +24,7 @@ const createUser = function(req, res){
 };
 
 const login = function(req, res) {
-  User.findByCredentials(req.body.email, req.body.password).then(function(user){
+  User.findByCredentials(req.body.username, req.body.password).then(function(user){
     user.generateToken().then(function(token){
       return res.send({user, token});
     }).catch(function(error){
