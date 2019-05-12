@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken')
-const User = require('../models/user')
+const User = require('../models/user.js')
 
 if ( process.env.NODE_ENV === 'production') {
     var secret = process.env.secret

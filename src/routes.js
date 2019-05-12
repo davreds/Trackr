@@ -2,9 +2,9 @@ const express = require('express')
 const router = express.Router()
 const cors = require('cors')
 
-const users = require('./controllers/users')
-const boards = require('./controllers/boards')
-const auth = require('./middleware/auth')
+const users = require('./controllers/users.js')
+const boards = require('./controllers/boards.js')
+const auth = require('./middleware/auth.js')
 
 router.all('*', cors())
 
