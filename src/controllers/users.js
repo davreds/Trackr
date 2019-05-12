@@ -49,7 +49,7 @@ const logout = function(req, res) {
 const updateUser = function(req, res) {
   const _id = req.user._id
   const updates = Object.keys(req.body)
-  const allowedUpdates = ['username', 'email', 'password']
+  const allowedUpdates = ['email', 'password']
   // revisa que los updates enviados sean permitidos, que no envie una key que no permitimos
   const isValidUpdate = updates.every((update) => allowedUpdates.includes(update))
 
