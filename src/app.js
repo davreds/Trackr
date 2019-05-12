@@ -1,5 +1,5 @@
 const express = require('express')
-require('./db/TrackrCluster')
+require('./db/trackrcluster')
 
 const router = require('./routes')
 

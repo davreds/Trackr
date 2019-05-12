@@ -1,7 +1,14 @@
 const mongoose = require('mongoose')
 const validator = require('validator')
-const bcrytp = require('bcryptjs')
+const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
+
+if ( process.env.NODE_ENV === 'production') {
+    var secret = process.env.secret
+} else {
+    const config = require('../config')
+    var secret = config.secret
+}
 
 const userSchema = new mongoose.Schema({
     username: {
@@ -23,10 +30,12 @@ const userSchema = new mongoose.Schema({
         minlength: 8,
         trim: true
     },
-    boards: {
-        type: [mongoose.Schema.Types.ObjectId],
-        ref: 'Board'
-    }
+    tokens: [{
+        token: {
+            type: String,
+            required: true
+        }
+    }]
 },{
   toObject: {
     virtuals: true
@@ -36,10 +45,10 @@ const userSchema = new mongoose.Schema({
   }
 });
 
-userSchema.virtual('todos', {
-  ref: 'Todo',
+userSchema.virtual('dashboards', {
+  ref: 'Board',
   localField: '_id',
-  foreignField: 'createdBy'
+  foreignField: 'owner'
 });
 
 userSchema.methods.toJSON = function() {
