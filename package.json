@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/davreds/Trackr#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "bulma": "^0.7.4",
     "cors": "^2.8.5",
     "express": "^4.16.4",
