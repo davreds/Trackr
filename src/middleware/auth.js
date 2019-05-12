@@ -12,7 +12,7 @@ const auth = function(req, res, next){
     try {
         const token = req.header('Authorization').replace('Bearer ', '')
         const decoded = jwt.verify(token, secret)
-        User.findOne({ _id: decoded.id, 'tokens.token': token}).then(function(user){
+        User.findOne({ _id: decoded._id, 'tokens.token': token}).then(function(user){
             if(!user){
                 throw new Error()
             }
@@ -22,7 +22,7 @@ const auth = function(req, res, next){
         }).catch(function(error){
             res.status(401).send({ error: 'Required user authentication.'})
         })
-    } catch(e) {
+    } catch(e){
         res.status(401).send({ error: 'Required user authentication.'})
     }
 }
