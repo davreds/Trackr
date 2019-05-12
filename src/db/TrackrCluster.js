@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-const config = require('../config.js')
 
 if ( process.env.NODE_ENV === 'production') {
     var connectionURL = process.env.connectionURL

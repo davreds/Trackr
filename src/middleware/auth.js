@@ -1,4 +1,4 @@
-const jwt = rquire('jsonwebtoken')
+const jwt = require('jsonwebtoken')
 const User = require('../models/user')
 
 if ( process.env.NODE_ENV === 'production') {
