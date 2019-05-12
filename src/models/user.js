@@ -67,7 +67,7 @@ userSchema.statics.findByCredentials = function(username, password) {
             if(!user){
                 return reject('User does not exist')
             }
-            bcrypt.compare(password, use.password).then(function(match){
+            bcrypt.compare(password, user.password).then(function(match){
                 if(match){
                     return resolve(user)
                 } else{
