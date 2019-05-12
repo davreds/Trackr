@@ -8,14 +8,6 @@ var taskSchema = new mongoose.Schema({
     },
     description: {
         type: String
-    },
-    responsibles: {
-        type: [mongoose.Schema.Types.ObjectId],
-        ref: 'User'
-    },
-    complete: {
-        type: Boolean,
-        required: true
     }
 });
 
@@ -26,10 +18,6 @@ var projectSchema = new mongoose.Schema ({
     },
     description: {
         type: String
-    },
-    team: {
-        type: [mongoose.Schema.Types.ObjectId],
-        ref: 'User'
     },
     tasks: {
         type: [taskSchema]

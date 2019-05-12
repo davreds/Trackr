@@ -27,8 +27,12 @@
   "homepage": "https://github.com/davreds/Trackr#readme",
   "dependencies": {
     "bulma": "^0.7.4",
+    "cors": "^2.8.5",
     "express": "^4.16.4",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.5.3",
-    "path": "^0.12.7"
+    "nodemon": "^1.19.0",
+    "path": "^0.12.7",
+    "validator": "^10.11.0"
   }
 }
