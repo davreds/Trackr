@@ -43,3 +43,7 @@
     border-radius: 15px;
     background-color: hsl(0, 0%, 1%, 30%);
 }
+
+.is-full{
+  padding-bottom: 2.07%;
+}
