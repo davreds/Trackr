@@ -9,7 +9,7 @@ const getUsers = function(req, res) {
 };
 
 const getUser = function(req, res) {
-  User.findById( req.user._id ).populate('todos').exec(function(error, user) {
+  User.findById( req.user._id ).populate('boards').exec(function(error, user) {
     return res.send(user);
   });
 };
