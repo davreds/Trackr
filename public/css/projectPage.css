@@ -47,3 +47,7 @@
 .is-full{
   padding-bottom: 2.07%;
 }
+
+.is-fullpage{
+  height: 100%;
+}
