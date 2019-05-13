@@ -1,4 +1,4 @@
-const Board = require('../models/user.js')
+const Board = require('../models/board.js')
 
 const getBoards = function(req, res){
     Board.find({owner: req.user_id}).then(function(boards){
