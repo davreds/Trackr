@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 const validator = require('validator')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
+const uniqueValidator = require('mongoose-unique-validator')
 
 if ( process.env.NODE_ENV === 'production') {
     var secret = process.env.secret
@@ -13,14 +14,21 @@ if ( process.env.NODE_ENV === 'production') {
 const userSchema = new mongoose.Schema({
     username: {
         type: String,
-        required: true
+        required: true,
+        unique: true,
+        validate(value){
+            if(!validator.isAlphanumeric(value)){
+                throw new Error('Invalid username.')
+            }
+        }
     },
     email: {
         type: String,
         required: true,
+        unique: true,
         validate(value){
             if(!validator.isEmail(value)){
-                throw new Error('Email invalido');
+                throw new Error('Invalid email');
             }
         }
     },
@@ -50,6 +58,8 @@ userSchema.virtual('dashboards', {
   localField: '_id',
   foreignField: 'owner'
 });
+
+userSchema.plugin(uniqueValidator, {message: 'Username or email already taken'})
 
 userSchema.methods.toJSON = function() {
   const user = this;
