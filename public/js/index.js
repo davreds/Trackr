@@ -1,4 +1,4 @@
-
+//Function to signup / create a new user
 function signUp(){
   var aError = false;
   var name = document.getElementById("userName");
@@ -67,7 +67,7 @@ function signUp(){
 
 }
 
-
+//Funciton to validate is passwords are the same
 function validatePassword(pass1, pass2){
   if(pass1 == pass2 && (pass1 != '' || pass2 != '')){
     return true;
@@ -75,12 +75,13 @@ function validatePassword(pass1, pass2){
   return false;
 }
 
+
+//Function to validate id a email is a email.
 function validateEmail(email){
   var re = /[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/igm;
   if (email == '' || !re.test(email))
   {
     return false;
   }
-
   return true;
 }

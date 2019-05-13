@@ -7,6 +7,7 @@
       <link rel="stylesheet" href="./css/style.css">
       <link rel="stylesheet" href="./css/dashboard.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.css">
+      <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </head>
     <head>
@@ -35,9 +36,6 @@
                 <p class="notAction">Yours</p>
               </div>
               <div id="yourDashboards">
-                <a class="navbar-item">
-                  Project 1
-                </a>
               </div>
               <hr class="navbar-divider">
               <div class="navbar-item">
@@ -49,7 +47,7 @@
                 </a>
               </div>
               <hr class="navbar-divider">
-              <a onclick="newDashboardModal()" class="navbar-item">
+              <a onclick="createDashboardModal()" class="navbar-item">
                 <p class="userAction">Add new dashboard</p>
               </a>
             </div>
@@ -76,16 +74,16 @@
       <div class="hero-body">
         <div class="columns">
           <div class="column is-three-quarters has-text-white ">
-            <p id="actualProject" class="title is-2 has-text-white" >Project1.</p>
-            <p id="actualProjectDescription" class="subtitle is-4 has-text-white"> Some a project description.</p>
+            <p id="actualProject" class="title is-2 has-text-white" ></p>
+            <p id="actualProjectDescription" class="subtitle is-4 has-text-white"></p>
           </div>
           <div class="column">
-            <a onclick="newProjectModal()" class="button is-light is-outlined">Add project</a>
+            <a onclick="createProjectModal()" class="button is-light is-outlined">Add project</a>
           </div>
           <div class="column">
             <div id="contributorDropdown" class="dropdown">
               <div class="dropdown-trigger">
-                <button class="button is-light is-outlined" aria-haspopup="true" aria-controls="dropdown-menu6">
+                <button class="button is-light is-outlined" aria-haspopup="true" aria-controls="dropdown-menu">
                   <span>Contributors</span>
                   <span class="icon is-small">
                     <i class="fas fa-angle-down" aria-hidden="true"></i>
@@ -95,12 +93,7 @@
               <div class="dropdown-menu" role="menu">
                 <div class="dropdown-content">
                   <div id="colleagues">
-                    <p class="dropdown-item">
-                      Tony David
-                    </p>
-                    <p class="dropdown-item">
-                      David Rojas
-                    </p>
+
                   </div>
                   <hr class="dropdown-divider">
                   <a onclick="newContributorModal()" href="#" class="dropdown-item">
@@ -111,7 +104,7 @@
             </div>
           </div>
           <div class="column">
-            <a onclick="projectConfigModal()">
+            <a onclick="updateDashboardModal()">
               <figure class="image is-32x32">
                 <img class="is-rounded" src="./img/configWhite.png">
               </figure>
@@ -122,99 +115,9 @@
     </section>
 
     <section>
-      <div id="dashboard" class="projectCardContainer">
-        <div class="tile is-ancestor is-full">
-              <div class="tile is-parent is-2">
-                <div class="tile is-child box" style=" border-radius: 15px; background-color: hsl(0, 0%, 1%, 30%);">
-                  <div class="level-right">
-                    <figure class="image is-16x16 ">
-                      <img class="is-rounded" src="./img/threeDotsWhite.png">
-                    </figure>
-                  </div>
-                  <p class="title is-4 has-text-white">Project 1</p>
-                  <p class="subtitle is-6 has-text-white">Testing the project one div</p>
-                  <div class = "projectCard">
+      <div class="projectCardContainer">
+        <div id="dashboard" class="tile is-ancestor is-full">
 
-
-                    <div class="is-child box">
-                      <div class="level-right">
-                        <figure class="image is-16x16 ">
-                          <img class="is-rounded" src="./img/threeDots.png">
-                        </figure>
-                      </div>
-                      <p class="title is-5"> task1</p>
-                    </div>
-                    <div class="is-child box">
-                      <div class="level-right">
-                        <figure class="image is-16x16 ">
-                          <img class="is-rounded" src="./img/threeDots.png">
-                        </figure>
-                      </div>
-                      <p class="title is-5"> task1</p>
-                    </div>
-                    <div class="is-child box">
-                      <div class="level-right">
-                        <figure class="image is-16x16 ">
-                          <img class="is-rounded" src="./img/threeDots.png">
-                        </figure>
-                      </div>
-                      <p class="title is-5"> task1</p>
-                    </div>
-                    <div class="is-child box">
-                      <div class="level-right">
-                        <figure class="image is-16x16 ">
-                          <img class="is-rounded" src="./img/threeDots.png">
-                        </figure>
-                      </div>
-                      <p class="title is-5"> task1</p>
-                    </div>
-                    <div class="is-child box">
-                      <div class="level-right">
-                        <figure class="image is-16x16 ">
-                          <img class="is-rounded" src="./img/threeDots.png">
-                        </figure>
-                      </div>
-                      <p class="title is-5"> task1</p>
-                    </div>
-                    <div class="is-child box">
-                      <div class="level-right">
-                        <figure class="image is-16x16 ">
-                          <img class="is-rounded" src="./img/threeDots.png">
-                        </figure>
-                      </div>
-                      <p class="title is-5"> task1</p>
-                    </div>
-                    <div class="is-child box">
-                      <div class="level-right">
-                        <figure class="image is-16x16 ">
-                          <img class="is-rounded" src="./img/threeDots.png">
-                        </figure>
-                      </div>
-                      <p class="title is-5"> task1</p>
-                    </div>
-                    <div class="is-child box">
-                      <div class="level-right">
-                        <figure class="image is-16x16 ">
-                          <img class="is-rounded" src="./img/threeDots.png">
-                        </figure>
-                      </div>
-                      <p class="title is-5"> task1</p>
-                    </div>
-
-                  </div>
-                  <hr />
-                  <div class="is-fixed footerCard">
-                    <div class="columns">
-                      <div class="column">
-                        <a onclick="addNewTask()" class="has-text-white is-5 modal-button" name="addTask">Add task</a>
-                      </div>
-                      <div class="column">
-                        <p class="is-5"> <a onclick="showAll()" class="has-text-white modal-button" name="showProjects">Show all</a></p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
         </div>
       </div>
     </section>
@@ -239,7 +142,7 @@
           <h2 class="subtitle is-7">You can change this later in the configuration icon.</h2>
         </section>
         <footer class="modal-card-foot">
-          <button onclick="newDashboard()" class="button is-success">Create Dashboard</button>
+          <button onclick="createDashboard()" class="button is-success">Create Dashboard</button>
           <button onclick="hideModal()" class="button">Cancel</button>
         </footer>
       </div>
@@ -264,7 +167,7 @@
           <h2 class="subtitle is-7">You can change this later on the white three dots icon in this project.</h2>
         </section>
         <footer class="modal-card-foot">
-          <button onclick="newProject()" class="button is-success">Create project</button>
+          <button onclick="createProject()" class="button is-success">Create project</button>
           <button onclick="hideModal()" class="button">Cancel</button>
         </footer>
       </div>
@@ -307,12 +210,12 @@
           <input id="dashboardDescription" class="input" type="text" placeholder="i.e. Mrs: Barbara. At room: 301.">
           <br>
           <br>
-          <h2 class="subtitle is-7">You can change this whenever you want.</h2>
+          <h2 class="subtitle is-7">You can change this settings whenever you want.</h2>
         </section>
         <footer class="modal-card-foot">
-          <button onclick="openDashboardConfig()"class="button is-success">Save changes</button>
+          <button onclick="updateDashboard()"class="button is-success">Save changes</button>
           <button onclick="hideModal()" class="button">Cancel</button>
-          <button onclick="quitDashboard()" class="button is-danger">Leave this dashboard</button>
+          <button onclick="deleteDashboard()" class="button is-danger">Leave this dashboard</button>
           </div>
         </footer>
       </div>
@@ -337,7 +240,7 @@
           <h2 class="subtitle is-7">You can change on the three dots of this task.</h2>
         </section>
         <footer class="modal-card-foot">
-          <button class="button is-success">Save changes</button>
+          <button class="button is-success" onclick="createTask()">Save changes</button>
           <button onclick="hideModal()" class="button">Cancel</button>
         </footer>
       </div>
@@ -358,6 +261,59 @@
         </footer>
       </div>
     </div>
+
+    <div id="projectConfigModal" class="modal">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Project configuration.</p>
+          <button onclick="hideModal()" class="delete" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+          <h2 class="title is-5">Project Name</h2>
+          <input id="projectName" class="input" type="text" placeholder="i.e. Web development.">
+          <br>
+          <br>
+          <h2 class="title is-5">Project description.</h2>
+          <input id="projectDescription" class="input" type="text" placeholder="i.e. Mrs: Barbara. At room: 301.">
+          <br>
+          <br>
+          <h2 class="subtitle is-7">You can change this settings whenever you want.</h2>
+        </section>
+        <footer class="modal-card-foot">
+          <button onclick="updateProject()"class="button is-success">Save changes</button>
+          <button onclick="hideModal()" class="button">Cancel</button>
+          <button onclick="deleteProject()" class="button is-danger">Delete this project</button>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <div id="taskConfigModal" class="modal">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Task configuration.</p>
+          <button onclick="hideModal()" class="delete" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+          <h2 class="title is-5">Task Name</h2>
+          <input id="taskName" class="input" type="text" placeholder="i.e. Read book.">
+          <br>
+          <br>
+          <h2 class="title is-5">Task description.</h2>
+          <input id="taskDescription" class="input" type="text" placeholder="i.e. Read chapter 13.">
+          <br>
+          <br>
+          <h2 class="subtitle is-7">You can change this settings whenever you want.</h2>
+        </section>
+        <footer class="modal-card-foot">
+          <button onclick="updateTask()"class="button is-success">Save changes</button>
+          <button onclick="hideModal()" class="button">Cancel</button>
+          <button onclick="deleteTask()" class="button is-danger">Delete this task</button>
+          </div>
+        </footer>
+      </div>
 
         <script type="text/javascript" src="js/dashboard.js"></script>
     </body>
