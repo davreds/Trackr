@@ -242,7 +242,28 @@ function createTask(dashID, projID){
     dataType: 'json',
     data: json_to_send,
     success: function(user){
-      console.log(user._id);
+      console.log(user._id)
+      json_to_send2 = {
+        userId: user._id
+      }
+      json_to_send2 = JSON.stringify(json_to_send2);
+
+      $.ajax({
+        url: 'http://trackr-tec.herokuapp.com/boards/addMember/' + dashID,
+        headers: {
+            'Content-Type':'application/json',
+            'Authorization': 'Bearer ' + token
+        },
+        method: 'PATCH',
+        dataType: 'json',
+        data: json_to_send2,
+        success: function(board){
+          addContributorHTML(board.members);
+        },
+        error: function(error_msg) {
+          alert("not ok");
+        }
+      });
     },
     error: function(error_msg) {
       alert("buuu");
@@ -361,12 +382,13 @@ function addDashboardHTML(dashboard){
   dashboardDescription.innerHTML = dashboard.description;
 
   var addContrib = document.getElementById("contribution");
-  params = "addContributor(" + "'" + dashboard._id + "'" + ")";
-
+  params1 = "addContributor(" + "'" + dashboard._id + "'" + ")";
+  addContrib.setAttribute("onclick", params1);
   var functionToDO = document.getElementById("currentBoard");
   params = "createProject(" + "'" + dashboard._id + "'" + ")";
   functionToDO.setAttribute("onclick", params);
   addProjectHTML(dashboard.projects, dashboard._id);
+  addContributorHTML(dashboard.members)
 }
 
 function addProjectHTML(projects, dashboardID){
@@ -427,6 +449,14 @@ function addTaskHTML(tasks, projectId, dashboardID){
   }
 }
 
-function addContributorHTML(contributorName){
-  var html = '<p class="dropdown-item">'+ contributorName + '</p>';
+
+
+function addContributorHTML(contributors){
+  console.log(contributors);
+  var contributorSection = document.getElementById("colleagues")
+  contributorSection.innerHTML = "";
+  for (var i = 0; i < contributors.length; i++) {
+    var html = '<p class="dropdown-item">'+ contributors[i] + '</p>';
+    contributorSection.innerHTML += html;
+  }
 }
