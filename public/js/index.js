@@ -50,8 +50,6 @@ function signUp(){
       dataType: 'json',
       data: json_to_send,
       success: function(data){
-        alert("Usuario creado con exito");
-        console.log('success: '+ data);
         window.location = './dashbaord.html'
       },
       error: function(error_msg) {

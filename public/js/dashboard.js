@@ -97,7 +97,7 @@ function loadDashboards() {
       addDashboardToNavBar(data);
     },
     error: function(error_msg) {
-      alert((error_msg['responseText']));
+      alert("error al recargar dashboards");
     }
   });
 }
@@ -118,7 +118,7 @@ function loadDashboard(id) {
       addDashboardHTML(data);
     },
     error: function(error_msg) {
-      alert((error_msg['responseText']));
+      alert("Error al cargar un solo dashboard");
     }
   });
 }
@@ -151,7 +151,7 @@ function createDashboard(){
       loadDashboards();
     },
     error: function(error_msg) {
-      alert((error_msg['responseText']));
+      alert("Error al crear un dashboard");
     }
   });
 
@@ -182,7 +182,7 @@ function createProject(id){
       loadDashboard(id);
     },
     error: function(error_msg) {
-      alert((error_msg['responseText']));
+      alert("Error al crear un proyecto");
     }
   });
 
@@ -216,18 +216,39 @@ function createTask(dashID, projID){
       loadDashboard(dashID);
     },
     error: function(error_msg) {
-      alert((error_msg['responseText']));
+      alert("error al crear un task");
     }
   });
   hideModal();
 }
 
 //Function to add new contributor to a dashboard
-  function addContributor(){
+  function addContributor(dashID){
   var modal = document.getElementById("addContributorModal");
   var email = document.getElementById("contributorEmail").value;
-  event.stopPropagation();
-  //Function to add person.
+
+  json_to_send = {
+    "dashboardId" : dashID,
+    "email": email
+  };
+  json_to_send = JSON.stringify(json_to_send);
+  $.ajax({
+    url: 'http://trackr-tec.herokuapp.com/users/addBoard/',
+    headers: {
+        'Content-Type':'application/json',
+        'Authorization': 'Bearer ' + token
+    },
+    method: 'PATCH',
+    dataType: 'json',
+    data: json_to_send,
+    success: function(user){
+      console.log(user._id);
+    },
+    error: function(error_msg) {
+      alert("buuu");
+    }
+  });
+  loadDashboard(dashID);
   hideModal();
 }
 
@@ -278,13 +299,52 @@ function createTask(dashID, projID){
   }
 
 //Delete selected project
-  function deleteTask(){
+  function deleteTask(dashID, projID, taskID){
     var modal = document.getElementById("taskConfigModal");
-    event.stopPropagation();
-    //Funcion de eliminar del task.
+
+    json_to_send = {
+      "projectId" : projID,
+      "taskId": taskID
+    };
+    json_to_send = JSON.stringify(json_to_send);
+    $.ajax({
+      url: 'http://trackr-tec.herokuapp.com/boards/removeTask/' + dashID,
+      headers: {
+          'Content-Type':'application/json',
+          'Authorization': 'Bearer ' + token
+      },
+      method: 'PATCH',
+      dataType: 'json',
+      data: json_to_send,
+      success: function(){
+        loadDashboard(dashID);
+      },
+      error: function(error_msg) {
+        alert("error al eliminar tarea");
+      }
+    });
     hideModal();
   }
 
+//Function to log out
+function logout(){
+  $.ajax({
+    url: 'http://trackr-tec.herokuapp.com/users/logout/',
+    headers: {
+        'Content-Type':'application/json',
+        'Authorization': 'Bearer ' + token
+    },
+    method: 'Post',
+    dataType: 'json',
+    success: function(){
+      window.location = './index.html'
+    },
+    error: function(error_msg) {
+      alert("Error al salir de sesion");
+    }
+  });
+  window.location = './index.html'
+}
 /*---------- Extra functions for dont make a mess ------*/
 function addDashboardToNavBar(dashboard){
   var dashboardNames = document.getElementById("yourDashboards");
@@ -299,6 +359,10 @@ function addDashboardHTML(dashboard){
   dashboardName.innerHTML = dashboard.name;
   var dashboardDescription = document.getElementById("actualProjectDescription");
   dashboardDescription.innerHTML = dashboard.description;
+
+  var addContrib = document.getElementById("contribution");
+  params = "addContributor(" + "'" + dashboard._id + "'" + ")";
+
   var functionToDO = document.getElementById("currentBoard");
   params = "createProject(" + "'" + dashboard._id + "'" + ")";
   functionToDO.setAttribute("onclick", params);
@@ -339,12 +403,12 @@ function addProjectHTML(projects, dashboardID){
     var functionToDO = document.getElementById("createTask");
     params = "createTask(" + "'" + dashboardID + "'" + "," + "'" + projects[i]._id + "'" +")";
     functionToDO.setAttribute("onclick", params);
-    addTaskHTML(projects[i].tasks, projects[i]._id)
+    addTaskHTML(projects[i].tasks, projects[i]._id, dashboardID)
   }
 }
 
-function addTaskHTML(tasks, id){
-  elementID = "tasks" + id
+function addTaskHTML(tasks, projectId, dashboardID){
+  elementID = "tasks" + projectId
   var taskSection = document.getElementById(elementID)
   taskSection.innerHTML = "";
   for (var i = 0; i < tasks.length; i++) {

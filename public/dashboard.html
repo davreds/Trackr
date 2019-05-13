@@ -62,7 +62,7 @@
                 <p>Config.</p>
               </a>
               <a id="logOut" class="navbar-item">
-                <p class="has-text-danger">Log out.</p>
+                <p class="has-text-danger" onclick="logout()">Log out.</p>
               </a>
             </div>
           </a>
@@ -96,7 +96,7 @@
 
                   </div>
                   <hr class="dropdown-divider">
-                  <a onclick="newContributorModal()" href="#" class="dropdown-item">
+                  <a onclick="newContributorModal()" class="dropdown-item">
                     <p class="userAction">Add contributor</p>
                   </a>
                 </div>
@@ -188,7 +188,7 @@
           <h2 class="subtitle is-7">Watch out for the email. We haven't implement admins, so you can't delete people yet.</h2>
         </section>
         <footer class="modal-card-foot">
-          <button onclick="addContributor()" class="button is-success"> Add contributor</button>
+          <button id="contribution" onclick="addContributor()" class="button is-success"> Add contributor</button>
           <button onclick="hideModal()" class="button">Cancel</button>
         </footer>
       </div>
