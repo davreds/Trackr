@@ -24,8 +24,8 @@ router.post('/boards', auth, boards.createBoard)
 router.patch('/boards/:id', auth, boards.updateBoard)
 router.delete('/boards/:id', auth, boards.deleteBoard)
 
-// router.patch('/boards/addProject/:id', auth, boards.addProject)
-// router.patch('/boards/removeProject/:id', auth, boards.removeProject)
+router.patch('/boards/addProject/:id', auth, boards.addProject)
+router.patch('/boards/removeProject/:id', auth, boards.removeProject)
 // router.patch('/boards/addTask/:id', auth, boards.addTask)
 // router.patch('/boards/removeTask/:id', auth, removeTask.addProject)
 

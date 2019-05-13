@@ -68,15 +68,38 @@ const deleteBoard = function(req, res) {
     })
 }
 
-// const addProject = function(req, res){
-//     const _id = req.params.id
-//     Board.findOneAndUpdate({_id}, {$push : {project}})
-// }
+const addProject = function(req, res){
+    const _id = req.params.id
+    Board.findOneAndUpdate({_id}, {$push : {projects : {title: req.body.title, description: req.body.description}}}).then(function(board){
+        if(!board){
+            return res.status(404).send({ error: `Board with id ${_id} not found.`})
+        }
+        return res.send(board)
+      }).catch(function(error) {
+        res.status(505).send({ error: error })
+    })
+}
+
+const removeProject = function(req, res){
+    const _id = req.params.id
+    Board.findOneAndUpdate({_id}, {$pull : {projects : {_id: req.body.projectId}}}).then(function(board){
+        if(!board){
+            return res.status(404).send({ error: `Board with id ${_id} not found.`})
+        }
+        return res.send(board)
+      }).catch(function(error) {
+        res.status(505).send({ error: error })
+    })
+}
 
 module.exports = {
     getBoards : getBoards,
     getBoard : getBoard,
     createBoard : createBoard,
     updateBoard : updateBoard,
-    deleteBoard : deleteBoard
+    deleteBoard : deleteBoard,
+    addProject : addProject,
+    removeProject : removeProject/*,
+    addTask : addTask,
+    removeTask : removeTask*/
 }
