@@ -122,7 +122,7 @@ const addMember = function(req, res){
         if(!board){
             return res.status(404).send({ error: `Board with id ${_id} not found.`})
         }
-        return res.send(board.populate('members'))
+        return res.send(board)
     }).catch(function(error) {
         res.status(505).send({ error: error })
     })
