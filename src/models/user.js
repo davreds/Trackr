@@ -43,6 +43,10 @@ const userSchema = new mongoose.Schema({
             type: String,
             required: true
         }
+    }],
+    dashboards: [{
+        type : mongoose.Schema.Types.ObjectId,
+        ref: 'User'
     }]
 },{
   toObject: {
@@ -53,11 +57,11 @@ const userSchema = new mongoose.Schema({
   }
 });
 
-userSchema.virtual('dashboards', {
-  ref: 'Board',
-  localField: '_id',
-  foreignField: 'owner'
-});
+// userSchema.virtual('dashboards', {
+//   ref: 'Board',
+//   localField: '_id',
+//   foreignField: 'owner'
+// });
 
 userSchema.plugin(uniqueValidator, {message: 'Username or email already taken'})
 
@@ -89,6 +93,20 @@ userSchema.statics.findByCredentials = function(username, password) {
         })
     })
 }
+
+userSchema.statics.findByEmail = function(email, update) {
+    return new Promise(function(resolve, reject){
+        User.findOneAndUpdate({email}, update).then(function(user){
+            if(!user){
+                return reject('No user matches this email')
+            }
+            return resolve(user)
+        }).catch(function(error){
+            return reject('No changes were possible')
+        })
+    })
+}
+
 
 userSchema.methods.generateToken = function() {
     const user = this

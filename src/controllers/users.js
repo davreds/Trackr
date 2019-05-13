@@ -81,6 +81,28 @@ const deleteUser = function(req, res) {
   });
 };
 
+const addBoard = function(req, res) {
+    User.findByEmail(req.body.email, {$push: {dashboards: req.body.dashboardId}}).then(function(user){
+        if(!user) {
+            return res.status(404).send();
+        }
+        return res.send(user);
+    }).catch(function(error) {
+        res.status(505).send(error);
+    });
+}
+
+const removeBoard = function(req, res) {
+    User.findByIdAndUpdate(req.body.userId, {$pull : {dashboards : req.body.dashboardId}}).then(function(user){
+        if(!user) {
+            return res.status(404).send();
+        }
+        return res.send(user);
+    }).catch(function(error) {
+        res.status(505).send(error);
+    });
+}
+
 module.exports = {
   getUsers : getUsers,
   getUser: getUser,
@@ -88,5 +110,7 @@ module.exports = {
   logout: logout,
   createUser : createUser,
   updateUser : updateUser,
-  deleteUser : deleteUser
+  deleteUser : deleteUser,
+  addBoard : addBoard,
+  removeBoard : removeBoard
 };

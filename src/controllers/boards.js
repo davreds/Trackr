@@ -20,24 +20,6 @@ const getBoard = function(req, res){
     })
 }
 
-/* Implementar GETs
-const getProjects = function(req, res){
-
-}
-
-const getProject = function(req, res){
-
-}
-
-const getTasks = function(req, res){
-
-}
-
-const getTask = function(req, res){
-
-}
-*/
-
 const createBoard = function(req, res){
     const _id = req.params.id
     const board = new Board({
@@ -53,15 +35,6 @@ const createBoard = function(req, res){
     })
 }
 
-/* Implementar POSTs
-const createProject = function(req, res){
-
-}
-
-const createTask = function(req, res){
-
-}
-*/
 const updateBoard = function(req, res){
     const _id = req.params.id
     const updates = Object.keys(req.body)
@@ -73,16 +46,6 @@ const updateBoard = function(req, res){
         })
     }
 
-/* Implementar POSTs
-const createProject = function(req, res){
-
-}
-
-const createTask = function(req, res){
-
-}
-*/
-
     Board.findOneAndUpdate({_id, owner: req.user._id}, req.body).then(function(board){
         if(!board){
             return res.status(404).send({ error: `Board with id ${_id} not found.`})
@@ -92,16 +55,6 @@ const createTask = function(req, res){
         res.status(500).send({ error: error })
     })
 }
-
-/* Implementar UPDATEs
-const updateProject = function(req, res){
-
-}
-
-const updateTask = function(req, res){
-
-}
-*/
 
 const deleteBoard = function(req, res) {
     const _id = req.params.id
@@ -115,15 +68,10 @@ const deleteBoard = function(req, res) {
     })
 }
 
-/* Implementar POSTs
-const deleteProject = function(req, res){
-
-}
-
-const deleteTask = function(req, res){
-
-}
-*/
+// const addProject = function(req, res){
+//     const _id = req.params.id
+//     Board.findOneAndUpdate({_id}, {$push : {project}})
+// }
 
 module.exports = {
     getBoards : getBoards,
