@@ -1,7 +1,7 @@
 const Board = require('../models/board.js')
 
 const getBoards = function(req, res){
-    Board.find({owner: req.user_id}).then(function(boards){
+    Board.find({owner: req.user._id}).then(function(boards){
         res.send(boards)
     }).catch(function(error){
         res.status(500).send(error)
@@ -43,7 +43,8 @@ const createBoard = function(req, res){
     const board = new Board({
         name: req.body.name,
         description: req.body.description,
-        owner: req.user._id
+        owner: req.user._id,
+        members: [req.user._id]
     })
     board.save().then(function(){
         return res.send(board)

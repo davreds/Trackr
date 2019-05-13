@@ -9,5 +9,6 @@ if ( process.env.NODE_ENV === 'production') {
 
 mongoose.connect( connectionURL, {
     useNewUrlParser: true,
-    useCreateIndex: true
+    useCreateIndex: true,
+    useFindAndModify: false
 })
