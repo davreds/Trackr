@@ -26,8 +26,11 @@ router.delete('/boards/:id', auth, boards.deleteBoard)
 
 router.patch('/boards/addProject/:id', auth, boards.addProject)
 router.patch('/boards/removeProject/:id', auth, boards.removeProject)
-// router.patch('/boards/addTask/:id', auth, boards.addTask)
-// router.patch('/boards/removeTask/:id', auth, removeTask.addProject)
+router.patch('/boards/addTask/:id', auth, boards.addTask)
+router.patch('/boards/removeTask/:id', auth, boards.removeTask)
+
+router.patch('/boards/addMember/:id', auth, boards.addMember)
+router.patch('/boards/removeMember/:id', auth, boards.removeMember)
 
 router.get('*', function(req, res) {
   res.send({

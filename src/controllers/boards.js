@@ -63,7 +63,7 @@ const deleteBoard = function(req, res) {
             return res.status(404).send({ error: `Board with id ${_id} not found.`})
         }
         return res.send(board)
-      }).catch(function(error) {
+    }).catch(function(error) {
         res.status(505).send({ error: error })
     })
 }
@@ -75,7 +75,7 @@ const addProject = function(req, res){
             return res.status(404).send({ error: `Board with id ${_id} not found.`})
         }
         return res.send(board)
-      }).catch(function(error) {
+    }).catch(function(error) {
         res.status(505).send({ error: error })
     })
 }
@@ -87,7 +87,55 @@ const removeProject = function(req, res){
             return res.status(404).send({ error: `Board with id ${_id} not found.`})
         }
         return res.send(board)
-      }).catch(function(error) {
+    }).catch(function(error) {
+          res.status(505).send({ error: error })
+    })
+}
+
+const addTask = function(req, res){
+    const _id = req.params.id
+    Board.findOneAndUpdate({_id, "projects._id" : req.body.projectId}, {"$push" : {"projects.$.tasks" : {name: req.body.name, description: req.body.description}}}).then(function(board){
+        if(!board){
+            return res.status(404).send({ error: `Board with id ${_id} not found.`})
+        }
+        return res.send(board)
+    }).catch(function(error) {
+        res.status(505).send({ error: error })
+    })
+}
+
+const removeTask = function(req, res){
+    const _id = req.params.id
+    Board.findOneAndUpdate({_id, "projects._id" : req.body.projectId}, {"$pull" : {"projects.$.tasks" : {_id : req.body.taskId}}}).then(function(board){
+        if(!board){
+            return res.status(404).send({ error: `Board with id ${_id} not found.`})
+        }
+        return res.send(board)
+    }).catch(function(error) {
+        res.status(505).send({ error: error })
+    })
+}
+
+const addMember = function(req, res){
+    const _id = req.params.id
+    Board.findByIdAndUpdate(_id, {$push : {members: req.body.userId}}).then(function(board){
+        if(!board){
+            return res.status(404).send({ error: `Board with id ${_id} not found.`})
+        }
+        return res.send(board)
+    }).catch(function(error) {
+        res.status(505).send({ error: error })
+    })
+}
+
+const removeMember = function(req, res){
+    const _id = req.params.id
+    Board.findByIdAndUpdate(_id, {$pull : {members: req.body.userId}}).then(function(board){
+        if(!board){
+            return res.status(404).send({ error: `Board with id ${_id} not found.`})
+        }
+        return res.send(board)
+    }).catch(function(error) {
         res.status(505).send({ error: error })
     })
 }
@@ -99,7 +147,9 @@ module.exports = {
     updateBoard : updateBoard,
     deleteBoard : deleteBoard,
     addProject : addProject,
-    removeProject : removeProject/*,
+    removeProject : removeProject,
     addTask : addTask,
-    removeTask : removeTask*/
+    removeTask : removeTask,
+    addMember : addMember,
+    removeMember : removeMember
 }
