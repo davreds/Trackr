@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/homepage.css">
+    <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <title>Log in</title>
@@ -18,19 +18,15 @@
               <p class="textCardTitleLogin">Log in</p>
               <p class="textCardSubtitlelogin" margin-top="-5px">Acess to your account</p>
               <hr class="loginLine"/>
-              <p class="textform" align="left">Email:</p>
-              <input id="userEmail" class="input" type="text" placeholder="John.Doe@example.com">
+              <p class="textform" align="left">Username:</p>
+              <input id="userName" class="input" type="text" placeholder="MasterNoob69">
               <p class="textform" align="left">Password:</p>
               <input id="userPass" class="input" type="password">
               <div class="columns" style="margin-top: 0px;">
                 <div class="column">
-                  <label class="checkbox">
-                    <input type="checkbox">
-                    Remember me
-                  </label>
                 </div>
                 <div class="column">
-                  <p class="login">Forgot password?</p>
+                  <a href="./changePassword.html" class="login">Forgot password?</a>
                 </div>
               </div>
               <a onclick="logIn()" class="button is-rounded" style="background-color:#e2787d; color:white; margin-bottom: 5px; border-color: #e2787d;">Log in</a>
@@ -44,5 +40,6 @@
       </div>
     </div>
       <script type="text/javascript" src="js/login.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   </body>
 </html>
