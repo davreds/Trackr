@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/homepage.css">
+    <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <title>Trackr</title>
@@ -41,16 +41,17 @@
     <div class="column">
       <div class="signUpCard" >
           <p class="textCardTitle">Sign Up Today</p>
-          <p class="textCardSubtitle" align="left" margin-top="-5px">Join the best task manager worldwide</p>
+          <p class="textCardSubtitle" align="left" margin-top="-5px">Join the best task manager worldwide.</p>
           <hr class="signUpLine"/>
           <p class="textform" align="left">Username:</p>
-          <input id="userName" class="input" type="text" placeholder="Doe" >
+          <input id="userName" class="input" type="text" placeholder="MasterNoob69" >
           <p class="textform" align="left">email:</p>
-          <input id="userEmail" class="input" type="text" placeholder="Doe" >
+          <input id="userEmail" class="input" type="text" placeholder="John.Doe@example.com" >
           <p class="textform" align="left">Password:</p>
-          <input id="userPassword1" class="input" type="password" placeholder="John.Doe@example.com">
+          <input id="userPassword1" class="input" type="password">
           <p class="textform" align="left">Confirm password:</p>
-          <input id="userPassword2" class="input" type="password" placeholder="John.Doe@example.com">
+          <input id="userPassword2" class="input" type="password">
+          <div class="help is-danger"><p id="errorFrase" class="hidden">Password too short.</p></div>
           <div class="columns">
             <div class="column">
               <a id="button-signUp" onclick="signUp()" class="button is-rounded" style="background-color:#e2787d; color:white; margin-top: 15px; border-color: #e2787d;">Sign Up</a>
@@ -266,5 +267,6 @@
 </section>
 
   <script type="text/javascript" src="js/index.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   </body>
 </html>

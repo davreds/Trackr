@@ -1,12 +1,8 @@
-
-function signUp(){
-  var aError = false;
-  var name = document.getElementById("userName");
+function updatePassword(){
   var email = document.getElementById("userEmail");
-  var pass1 = document.getElementById("userPassword1");
-  var pass2 = document.getElementById("userPassword2");
-  var errFrase = document.getElementById("errorFrase");
-  errFrase.classList.add("hidden");
+  var pass1 = document.getElementById("newPassword");
+  var pass2 = document.getElementById("newPassConfirm");
+  var errorFlag = false;
 
   if (validateEmail(email.value) == true){
     email.classList.remove("is-danger");
@@ -15,7 +11,7 @@ function signUp(){
   else{
     email.classList.remove("is-success");
     email.classList.add("is-danger");
-    aError = true;
+    errorFlag = true;
   }
 
   if(validatePassword(pass1.value, pass2.value) == true){
@@ -29,12 +25,12 @@ function signUp(){
     pass1.classList.add("is-danger");
     pass2.classList.remove("is-success");
     pass2.classList.add("is-danger");
-    aError = true;
+    errorFlag = true;
   }
 
-  if(aError == false){
+  if(errorFlag == false){
+
     json_to_send = {
-      "username" : name.value,
       "email": email.value,
       "password": pass1.value
     };
@@ -42,27 +38,22 @@ function signUp(){
     json_to_send = JSON.stringify(json_to_send);
 
     $.ajax({
-      url: 'http://trackr-tec.herokuapp.com/users/',// url: 'https://tuapp.herokuapp.com/users',
+      url: '',// url: 'https://tuapp.herokuapp.com/users',
       headers: {
           'Content-Type':'application/json'
       },
-      method: 'POST',
+      method: 'PATCH',
       dataType: 'json',
       data: json_to_send,
       success: function(data){
-        alert("Usuario creado con exito");
+        alert("Password changed");
         console.log('success: '+ data);
-        window.location = './dashbaord.html'
+        window.location = './index.html';
       },
       error: function(error_msg) {
-        //console.log(error_msg.responseText);
-        var errFrase = document.getElementById("errorFrase");
-        errFrase.classList.remove("hidden");
-        pass1.classList.add("is-danger");
-        pass2.classList.add("is-danger");
+        alert((error_msg['responseText']));
       }
     });
-
   }
 
 }
