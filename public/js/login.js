@@ -20,7 +20,7 @@ function logIn(){
       success: function(data){
         // guardar token en localstorage o cookie
         localStorage.setItem('token', data.token);
-        window.location = './dashbaord.html';
+        window.location = './dashboard.html';
       },
       error: function(error_msg) {
 
