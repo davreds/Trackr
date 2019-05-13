@@ -106,7 +106,6 @@ loadDashboards()
 
 //Function to read one dashboard
 function loadDashboard(id) {
-  console.log(id);
   $.ajax({
     url: 'http://trackr-tec.herokuapp.com/boards/' + id,
     headers: {
@@ -116,7 +115,6 @@ function loadDashboard(id) {
     method: 'GET',
     dataType: 'json',
     success: function(data){
-      console.log(data);
       addDashboardHTML(data);
     },
     error: function(error_msg) {
@@ -161,22 +159,66 @@ function createDashboard(){
 }
 
 //Function to save and create a new dashboard
-function createProject(){
+function createProject(id){
   var modal = document.getElementById("addProjectModal");
   var projectName = document.getElementById("newProjectName").value;
   var projectDescription = document.getElementById("NewProjectDescription").value;
-  event.stopPropagation();
-  //Function to create new project
+
+  json_to_send = {
+    "title" : projectName,
+    "description" : projectDescription,
+  };
+  json_to_send = JSON.stringify(json_to_send);
+  $.ajax({
+    url: 'http://trackr-tec.herokuapp.com/boards/addProject/' + id,
+    headers: {
+        'Content-Type':'application/json',
+        'Authorization': 'Bearer ' + token
+    },
+    method: 'PATCH',
+    dataType: 'json',
+    data: json_to_send,
+    success: function(){
+      loadDashboard(id);
+    },
+    error: function(error_msg) {
+      alert((error_msg['responseText']));
+    }
+  });
+
   hideModal();
 }
 
 //Function to create a task
-function createTask(){
+function createTask(dashID, projID){
   var modal = document.getElementById("addTask");
   var taskName = document.getElementById("taskName").value;
   var taskDescription = document.getElementById("taskDescription").value;
-  event.stopPropagation();
-  //Function to create new task
+
+  json_to_send = {
+    "name" : taskName,
+    "projectId": projID,
+    "description" : taskDescription
+  };
+
+  console.log(json_to_send);
+  json_to_send = JSON.stringify(json_to_send);
+  $.ajax({
+    url: 'http://trackr-tec.herokuapp.com/boards/addTask/' + dashID,
+    headers: {
+        'Content-Type':'application/json',
+        'Authorization': 'Bearer ' + token
+    },
+    method: 'PATCH',
+    dataType: 'json',
+    data: json_to_send,
+    success: function(){
+      loadDashboard(dashID);
+    },
+    error: function(error_msg) {
+      alert((error_msg['responseText']));
+    }
+  });
   hideModal();
 }
 
@@ -248,7 +290,6 @@ function addDashboardToNavBar(dashboard){
   var dashboardNames = document.getElementById("yourDashboards");
   dashboardNames.innerHTML = "";
   for (var i = 0; i < dashboard.length; i++) {
-    console.log(dashboard[i].name);
     dashboardNames.innerHTML += '<a class="navbar-item" id="'+ dashboard[i]._id + '"onclick="loadDashboard('+ '\'' + dashboard[i]._id + '\'' + ')">' + dashboard[i].name + '</a>';
   }
 }
@@ -258,49 +299,68 @@ function addDashboardHTML(dashboard){
   dashboardName.innerHTML = dashboard.name;
   var dashboardDescription = document.getElementById("actualProjectDescription");
   dashboardDescription.innerHTML = dashboard.description;
+  var functionToDO = document.getElementById("currentBoard");
+  params = "createProject(" + "'" + dashboard._id + "'" + ")";
+  functionToDO.setAttribute("onclick", params);
+  addProjectHTML(dashboard.projects, dashboard._id);
 }
 
-function addProjectHTML(dashboardID, projectID, projectName, projectDescription){
-  var html = '<div id="'+ projectID +'" class="tile is-parent is-2">'+
-    '<div class="tile is-child box" style=" border-radius: 15px; background-color: hsl(0, 0%, 1%, 30%);">'+
-      '<div class="level-right">'+
-        '<a onclick="updateProjectModal()">'+
-            '<figure class="image is-16x16">'+
-              '<img class="is-rounded" src="./img/threeDotsWhite.png">'+
-            '</figure>'+
-          '</a>'+
-      '</div>'+
-      '<p class="title is-4 has-text-white">' + projectName + '</p>'+
-      '<p class="subtitle is-6 has-text-white">' + projectDescription +'</p>'+
-      '<div id="tasks'+ projectID + '" class="projectCard">'+
-      '</div>'+
-      '<hr />'+
-      '<div class="is-fixed footerCard">'+
-        '<div class="columns">'+
-          '<div class="column">'+
-            '<a onclick="createTaskModal()" class="has-text-white is-5 modal-button" name="addTask">Add task</a>'+
-          '</div>'+
-          '<div class="column">'+
-            '<p class="is-5"> <a onclick="showAll()" class="has-text-white modal-button" name="showProjects">Show all</a></p>'+
+function addProjectHTML(projects, dashboardID){
+  var projectSection = document.getElementById('dashboard')
+  projectSection.innerHTML = "";
+  for (var i = 0; i < projects.length; i++) {
+    var html = '<div id="'+ projects[i]._id +'" class="tile is-parent is-2">'+
+      '<div class="tile is-child box" style=" border-radius: 15px; background-color: hsl(0, 0%, 1%, 30%);">'+
+        '<div class="level-right">'+
+          '<a onclick="updateProjectModal()">'+
+              '<figure class="image is-16x16">'+
+                '<img class="is-rounded" src="./img/threeDotsWhite.png">'+
+              '</figure>'+
+            '</a>'+
+        '</div>'+
+        '<p class="title is-4 has-text-white">' + projects[i].title + '</p>'+
+        '<p class="subtitle is-6 has-text-white">' + projects[i].description +'</p>'+
+        '<div id="tasks'+ projects[i]._id + '" class="projectCard">'+
+        '</div>'+
+        '<hr />'+
+        '<div class="is-fixed footerCard">'+
+          '<div class="columns">'+
+            '<div class="column">'+
+              '<a onclick="createTaskModal()" class="has-text-white is-5 modal-button" name="addTask">Add task</a>'+
+            '</div>'+
+            '<div class="column">'+
+              '<p class="is-5"> <a onclick="showAll()" class="has-text-white modal-button" name="showProjects">Show all</a></p>'+
+            '</div>'+
           '</div>'+
         '</div>'+
       '</div>'+
-    '</div>'+
-  '</div>';
+    '</div>';
+    projectSection.innerHTML += html;
+    var functionToDO = document.getElementById("createTask");
+    params = "createTask(" + "'" + dashboardID + "'" + "," + "'" + projects[i]._id + "'" +")";
+    functionToDO.setAttribute("onclick", params);
+    addTaskHTML(projects[i].tasks, projects[i]._id)
+  }
 }
 
-function addTaskHTML(projectID, taskID, taskName, taskDescription){
-  var html = '<div id="' + taskID +'" class="is-child box" name="dbTask">'+
-              '<div class="level-right">'+
-                '<a onclick="updateTaskModal()">'+
-                  '<figure class="image is-16x16">'+
-                    '<img class="is-rounded" src="./img/threeDots.png">'+
-                      '</figure>'+
-                        '</a>'+
-                      '</div>'+
-                    '<p id="taskNameDB" class="title is-5">'+ taskName +'</p>'+
-                    '<p id="taskDescriptionDB" class="subtitle is-7">'+ taskDescription + '</p>'+
-              '</div>';
+function addTaskHTML(tasks, id){
+  elementID = "tasks" + id
+  var taskSection = document.getElementById(elementID)
+  taskSection.innerHTML = "";
+  for (var i = 0; i < tasks.length; i++) {
+    var html = '<div id="' + tasks[i]._id +'" class="is-child box" name="dbTask">'+
+                '<div class="level-right">'+
+                  '<a onclick="updateTaskModal()">'+
+                    '<figure class="image is-16x16">'+
+                      '<img class="is-rounded" src="./img/threeDots.png">'+
+                        '</figure>'+
+                          '</a>'+
+                        '</div>'+
+                      '<p id="taskNameDB" class="title is-5">'+ tasks[i].name +'</p>'+
+                      '<p id="taskDescriptionDB" class="subtitle is-7">'+ tasks[i].description + '</p>'+
+                '</div>';
+    taskSection.innerHTML += html;
+  }
 }
 
 function addContributorHTML(contributorName){
