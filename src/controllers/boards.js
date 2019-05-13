@@ -1,7 +1,7 @@
 const Board = require('../models/board.js')
 
 const getBoards = function(req, res){
-    Board.find({owner: req.user._id}).then(function(boards){
+    Board.find({members: [req.user._id]}).then(function(boards){
         res.send(boards)
     }).catch(function(error){
         res.status(500).send(error)
