@@ -50,7 +50,7 @@ function signUp(){
       dataType: 'json',
       data: json_to_send,
       success: function(data){
-        window.location = './dashboard.html'
+        window.location = './login.html'
       },
       error: function(error_msg) {
         //console.log(error_msg.responseText);
